@@ -11,12 +11,17 @@ float deltaTime, lastFrame;
 
 int main() {
     glfwInit();
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_COMPAT_PROFILE);
     GLFWwindow* window = glfwCreateWindow(800, 600, "Landoodle123 has ligma", NULL, NULL);
     glfwMakeContextCurrent(window);
     gladLoadGL();
-
+    
     glEnable(GL_TEXTURE_2D);
+    glMatrixMode(GL_PROJECTION);
     glOrtho(0, 800, 600, 0, -1, 1);
+    glMatrixMode(GL_MODELVIEW);
 
     TileMap map;
 
